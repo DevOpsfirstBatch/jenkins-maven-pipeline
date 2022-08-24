@@ -8,7 +8,7 @@ pipeline {
                 git changelog: false, credentialsId: 'GitID', poll: false, url: 'https://github.com/DevOpsfirstBatch/jenkins-maven-pipeline'
                 }
             }
-        }
+        
 
         stage ('Testing Stage') {
 
@@ -16,14 +16,14 @@ pipeline {
                echo "Testing"
                 }
             }
-        }
+        
 
 
         stage ('Deployment Stage') {
             steps {
                 echo "Deployment"
                 }
-            }
+            
         }
     }
 }
