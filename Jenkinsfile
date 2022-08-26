@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
+        stage ('Code Checkout') {
 
             steps {
                 git changelog: false, credentialsId: 'GitID', poll: false, url: 'https://github.com/DevOpsfirstBatch/jenkins-maven-pipeline'
@@ -10,18 +10,22 @@ pipeline {
             }
         
 
-        stage ('Testing Stage') {
-
+        stage ('Compile') {
             steps {
-               echo "Testing"
-                }
+
+            withMaven(globalMavenSettingsConfig: 'null', jdk: 'java1.8', maven: 'maven3.8.6', mavenSettingsConfig: 'null') {
+    // some block
+                sh "mvn clean compile"
+}
             }
-        
+        }
 
 
-        stage ('Deployment Stage') {
+        stage ('Test') {
             steps {
-                echo "Deployment"
+                withMaven(globalMavenSettingsConfig: 'null', jdk: 'java1.8', maven: 'maven3.8.6', mavenSettingsConfig: 'null') {
+                sh "mvn test"
+}
                 }
             
         }
