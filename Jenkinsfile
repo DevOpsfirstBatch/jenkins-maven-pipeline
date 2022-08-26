@@ -13,7 +13,7 @@ pipeline {
         stage ('Compile') {
             steps {
 
-            withMaven(globalMavenSettingsConfig: 'null', jdk: 'java1.8', maven: 'maven3.8.6', mavenSettingsConfig: 'null') {
+            withMaven( jdk: 'java1.8', maven: 'maven3.8.6') {
     // some block
                 sh "mvn clean compile"
 }
@@ -23,7 +23,7 @@ pipeline {
 
         stage ('Test') {
             steps {
-                withMaven(globalMavenSettingsConfig: 'null', jdk: 'java1.8', maven: 'maven3.8.6', mavenSettingsConfig: 'null') {
+                withMaven(jdk: 'java1.8', maven: 'maven3.8.6') {
                 sh "mvn test"
 }
                 }
