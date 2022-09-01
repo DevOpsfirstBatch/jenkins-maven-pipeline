@@ -6,3 +6,4 @@
 - if neither, you say the number
 
 Tested by Suresh
+Tested for GIT trigger.
