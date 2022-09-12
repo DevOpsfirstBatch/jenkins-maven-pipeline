@@ -29,5 +29,11 @@ pipeline {
                 }
             
         }
+        stage ('Test') {
+            steps {
+                mail bcc: '', body: 'This is my Build Result', cc: '', from: '', replyTo: '', subject: 'Build Results', to: 'surippts@gmail.com'
+}
+                }
+        }
     }
 }
