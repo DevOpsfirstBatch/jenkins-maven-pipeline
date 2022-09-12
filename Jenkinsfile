@@ -29,7 +29,7 @@ pipeline {
                 }
             
         }
-        stage ('Test') {
+        stage ('Mail') {
             steps {
                 mail bcc: '', body: 'This is my Build Result', cc: '', from: '', replyTo: '', subject: 'Build Results', to: 'surippts@gmail.com'
 }
