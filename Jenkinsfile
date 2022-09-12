@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('Mail') {
             steps {
-                mail bcc: '', body: '$BRANCH_NAME', cc: '', from: '', replyTo: '', subject: 'Build Results', to: 'surippts@gmail.com'
+                mail bcc: '', body: '${BRANCH_NAME}', cc: '', from: '', replyTo: '', subject: 'Build Results', to: 'surippts@gmail.com'
 }
                 }
         }
